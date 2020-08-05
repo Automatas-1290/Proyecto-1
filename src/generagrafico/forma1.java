@@ -8,20 +8,21 @@ package generagrafico;
 import dk.brics.automaton.RegExp;
 import dk.brics.automaton.Automaton;
 import java.io.*;
-/**
- *
- * @author Alex
- */
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
+
+
 public class forma1 extends javax.swing.JFrame{
     public String mensaje = "", grafo="";
     public String er1 = "", er2="", ejemplo="";
     private FileWriter archivo = null;
     private PrintWriter pw = null;
-    private String rutaDot = "C:\\Program Files (x86)\\Graphviz2.38\\bin\\dot.exe";
+    private String rutaDot = "C:\\Program Files (x86)\\GraphViz\\bin\\dot.exe";
     String textoBase = "C:\\Automatas\\grafo1.txt";
     String imagen = "C:\\Automatas\\grafo1.jpg";
     String parametroT = "-Tjpg";
     String parametroO = "-o";
+    JLabel imagg;
     
     /**
      * Creates new form forma1
@@ -46,22 +47,20 @@ public class forma1 extends javax.swing.JFrame{
         btCargarER = new javax.swing.JButton();
         btVerAutomata = new javax.swing.JButton();
         lbEjemploCadena = new javax.swing.JLabel();
+        lblimagen = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMaximumSize(new java.awt.Dimension(500, 250));
-        setMinimumSize(new java.awt.Dimension(500, 250));
+        setMaximumSize(new java.awt.Dimension(800, 550));
+        setMinimumSize(new java.awt.Dimension(800, 550));
         setPreferredSize(new java.awt.Dimension(500, 250));
-        getContentPane().setLayout(null);
-        getContentPane().add(tfExpresionRegular);
-        tfExpresionRegular.setBounds(260, 30, 180, 30);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        getContentPane().add(tfExpresionRegular, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 30, 180, 30));
 
         jLabel1.setText("Ingrese la cadena a evaluar");
-        getContentPane().add(jLabel1);
-        jLabel1.setBounds(30, 30, 230, 30);
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 30, 230, 30));
 
         lbIndicaAutomata.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        getContentPane().add(lbIndicaAutomata);
-        lbIndicaAutomata.setBounds(60, 130, 360, 40);
+        getContentPane().add(lbIndicaAutomata, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 130, 360, 40));
 
         btCargarER.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         btCargarER.setText("Cargar Expresion Regular");
@@ -70,8 +69,7 @@ public class forma1 extends javax.swing.JFrame{
                 btCargarERActionPerformed(evt);
             }
         });
-        getContentPane().add(btCargarER);
-        btCargarER.setBounds(60, 80, 170, 30);
+        getContentPane().add(btCargarER, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 80, 170, 30));
 
         btVerAutomata.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         btVerAutomata.setText("Ver Imagen del Automata");
@@ -80,18 +78,18 @@ public class forma1 extends javax.swing.JFrame{
                 btVerAutomataActionPerformed(evt);
             }
         });
-        getContentPane().add(btVerAutomata);
-        btVerAutomata.setBounds(260, 80, 160, 30);
+        getContentPane().add(btVerAutomata, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 80, 160, 30));
 
         lbEjemploCadena.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        getContentPane().add(lbEjemploCadena);
-        lbEjemploCadena.setBounds(20, 180, 460, 40);
+        getContentPane().add(lbEjemploCadena, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, 460, 40));
+        getContentPane().add(lblimagen, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 206, 640, 160));
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btCargarERActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCargarERActionPerformed
+        imagg.setIcon(null);
         reinicio();
         borraArchivo(textoBase);
         borraArchivo(imagen);
@@ -101,11 +99,15 @@ public class forma1 extends javax.swing.JFrame{
         grafico();
         creaTexto();
         creaImagen();
+        
     }//GEN-LAST:event_btCargarERActionPerformed
 
     private void btVerAutomataActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btVerAutomataActionPerformed
         repaint();
-        new imagenAutomata().setVisible(true);
+        //new imagenAutomata().setVisible(true);      
+        lblimagen.enable(true);
+        lblimagen.setIcon(null);
+        lblimagen.setIcon(new ImageIcon("C:\\Automatas\\grafo1.jpg"));
     }//GEN-LAST:event_btVerAutomataActionPerformed
     
     private void convierteCadena(){
@@ -272,6 +274,7 @@ public class forma1 extends javax.swing.JFrame{
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel lbEjemploCadena;
     private javax.swing.JLabel lbIndicaAutomata;
+    private javax.swing.JLabel lblimagen;
     private javax.swing.JTextField tfExpresionRegular;
     // End of variables declaration//GEN-END:variables
 }
