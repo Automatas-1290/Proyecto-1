@@ -4,20 +4,20 @@
  * and open the template in the editor.
  */
 
-package generagrafico;
+package Automatas;
 
 /**
  *
  * @author Alex
  */
-public class GeneraGrafico {
+public class Imagen {
 
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        new forma1().setVisible(true);
+        new Ventana().setVisible(true);
     }
     
 }

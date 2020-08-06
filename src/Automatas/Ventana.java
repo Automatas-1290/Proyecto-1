@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package generagrafico;
+package Automatas;
 import dk.brics.automaton.RegExp;
 import dk.brics.automaton.Automaton;
 import java.io.*;
@@ -12,7 +12,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
 
-public class forma1 extends javax.swing.JFrame{
+public class Ventana extends javax.swing.JFrame{
     public String mensaje = "", grafo="";
     public String er1 = "", er2="", ejemplo="";
     private FileWriter archivo = null;
@@ -27,7 +27,7 @@ public class forma1 extends javax.swing.JFrame{
     /**
      * Creates new form forma1
      */
-    public forma1() {
+    public Ventana() {
         initComponents();
         lbIndicaAutomata.setVisible(false);
     }
@@ -50,9 +50,7 @@ public class forma1 extends javax.swing.JFrame{
         lblimagen = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMaximumSize(new java.awt.Dimension(800, 550));
         setMinimumSize(new java.awt.Dimension(800, 550));
-        setPreferredSize(new java.awt.Dimension(500, 250));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         getContentPane().add(tfExpresionRegular, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 30, 180, 30));
 
@@ -89,7 +87,7 @@ public class forma1 extends javax.swing.JFrame{
     }// </editor-fold>//GEN-END:initComponents
 
     private void btCargarERActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCargarERActionPerformed
-        imagg.setIcon(null);
+        lblimagen.setIcon(null);
         reinicio();
         borraArchivo(textoBase);
         borraArchivo(imagen);
@@ -105,7 +103,7 @@ public class forma1 extends javax.swing.JFrame{
     private void btVerAutomataActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btVerAutomataActionPerformed
         repaint();
         //new imagenAutomata().setVisible(true);      
-        lblimagen.enable(true);
+        lblimagen.enable(false);
         lblimagen.setIcon(null);
         lblimagen.setIcon(new ImageIcon("C:\\Automatas\\grafo1.jpg"));
     }//GEN-LAST:event_btVerAutomataActionPerformed
@@ -250,20 +248,21 @@ public class forma1 extends javax.swing.JFrame{
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(forma1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Ventana.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(forma1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Ventana.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(forma1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Ventana.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(forma1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Ventana.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
         
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new forma1().setVisible(true);
+                new Ventana().setVisible(true);
             }
         });
     }
